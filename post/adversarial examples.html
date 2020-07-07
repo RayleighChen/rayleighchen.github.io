@@ -14,17 +14,17 @@
   <!-- if page has tags, then add tags to keyword -->
   
   
-  <meta name="keywords" content=",">
+  <meta name="keywords" content=",深度学习,">
   <!-- page.description has higher priority -->
-  <meta name="description" content="陈力的个人博客，分享一些知识和生活的地方">
+  <meta name="description" content="对抗样本系列文章">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <title>
     
-    Hello World | 陈力
+    对抗样本(一) - 对抗样本的坑 | 陈力
     
   </title>
 
-  <link rel="canonical" href="/post/20110902-hello-world.html">
+  <link rel="canonical" href="/post/adversarial examples.html">
 
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/layout.css">
@@ -255,7 +255,7 @@
                     </li>
                     
                     <li>
-                        <a ref="nofollow" class="post-item-title  "
+                        <a ref="nofollow" class="post-item-title active "
                             href="/post/adversarial examples.html">
                              对抗样本的坑
                         </a>
@@ -338,7 +338,7 @@
                     </li>
                     
                     <li>
-                        <a ref="nofollow" class="post-item-title  "
+                        <a ref="nofollow" class="post-item-title active "
                             href="/post/adversarial examples.html">
                              对抗样本的坑
                         </a>
@@ -597,29 +597,74 @@
 </style>
 <!-- Post Content -->
 <article class="post-container">
-    <h1> Hello World </h1>
+    <h1> 对抗样本(一) - 对抗样本的坑 </h1>
 
     
 
     
+    <div class="series_links">
+        <p> <strong> 对抗样本等内容系列文章链接：</strong></p>
+        <ul>
+            
+            <li>
+                <a href="/post/ads.html">对抗样本(二) -</a>
+                <span class="post-item-date">(Jun 29, 2019)</span>
+            </li>
+            
+            <li>
+                <a href="/post/ad_example.html">对抗样本(一) - 对抗样本的坑</a>
+                <span class="post-item-date">(Jul 12, 2019)</span>
+            </li>
+            
+            <li>
+                <a href="/post/adversarial examples.html">对抗样本(一) - 对抗样本的坑</a>
+                <span class="post-item-date">(Jun 12, 2020)</span>
+            </li>
+            
+        </ul>
+    </div>
     
     
     
     
     
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    
+    <h1 id="Adversarial-Examples"><a href="#Adversarial-Examples" class="headerlink" title="Adversarial Examples"></a>Adversarial Examples</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import required libs</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn</span><br><span class="line"><span class="keyword">from</span> torch.autograd.gradcheck <span class="keyword">import</span> zero_gradients</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torchvision.models <span class="keyword">as</span> models</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> requests, io</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inceptionv3 = models.inception_v3(pretrained=<span class="literal">True</span>) <span class="comment">#download and load pretrained inceptionv3 model</span></span><br><span class="line">inceptionv3.eval();</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = Image.open(<span class="string">'cat3.jpg'</span>)</span><br><span class="line">plt.imshow(img)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ef6af86d8&gt;</code></pre><p><img src="images/ads/output_3_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mean and std will remain same irresptive of the model you use</span></span><br><span class="line">mean=[<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>]</span><br><span class="line">std=[<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>]</span><br><span class="line"></span><br><span class="line">preprocess = transforms.Compose([</span><br><span class="line">                transforms.Resize((<span class="number">299</span>,<span class="number">299</span>)),  </span><br><span class="line">                transforms.ToTensor(),</span><br><span class="line">                transforms.Normalize(mean, std)</span><br><span class="line">            ])</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">image_tensor = preprocess(img) <span class="comment">#preprocess an i</span></span><br><span class="line">image_tensor = image_tensor.unsqueeze(<span class="number">0</span>) <span class="comment"># add batch dimension.  C _ H _ W ==&gt; B _ C _ H _ W</span></span><br><span class="line">img_variable = Variable(image_tensor, requires_grad=<span class="literal">True</span>) <span class="comment">#convert tensor into a variable</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = inceptionv3.forward(img_variable)</span><br><span class="line">label_idx = torch.max(output.data, <span class="number">1</span>)[<span class="number">1</span>][<span class="number">0</span>]   <span class="comment">#get an index(class number) of a largest element</span></span><br><span class="line">print(label_idx)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor(282)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">f = open(<span class="string">'labels.json'</span>,) </span><br><span class="line">  </span><br><span class="line">labels_json = json.load(f) </span><br><span class="line">labels = &#123;int(idx):label <span class="keyword">for</span> idx, label <span class="keyword">in</span> labels_json.items()&#125;</span><br><span class="line">x_pred = labels[int(label_idx)]</span><br><span class="line">print(x_pred)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tiger cat</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output_probs = F.softmax(output, dim=<span class="number">1</span>)</span><br><span class="line">x_pred_prob =  round(float(torch.max(output_probs.data, <span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]) * <span class="number">100</span>,<span class="number">4</span>)</span><br><span class="line">print(x_pred_prob)</span><br></pre></td></tr></table></figure>
+
+<pre><code>85.5751</code></pre><h1 id="Fast-Gradient-Sign-Method"><a href="#Fast-Gradient-Sign-Method" class="headerlink" title="Fast Gradient Sign Method"></a>Fast Gradient Sign Method</h1><p>Fast Gradient Sign Method (FGSM)$^{[1]}$ is a fast and computationally efficient method to generate adversarial examples. However, it usually has a lower success rate.</p>
+ <center> $ X^{adv} = X + \epsilon sign (\nabla_{X} J(X,Y_{true}))$ </center>
+
+<p>$X^{adv} =$ adversarial example (designed to be misclassified by our model)<br>$X = $ original (clean) input<br>$\epsilon = $ magnitude of adversarial perturbation<br>$sign(x) = \begin{cases}  -1  &amp; \text{if}\quad   x &lt; 0, \ 0 &amp; \text{if}\quad  x =0, \ 1 &amp; \text{if}\quad x &lt; 0. \end{cases}$<br>$\nabla_{X} J(X,Y_{true}) =$ gradient of loss function w.r.t to input (X)</p>
+<p>[1] Goodfellow I J, Shlens J, Szegedy C. Explaining and harnessing adversarial examples[J]. arXiv preprint arXiv:1412.6572, 2014.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y_true = <span class="number">282</span>   <span class="comment">#tiger cat  ##change this if you change input image</span></span><br><span class="line">target = Variable(torch.LongTensor([y_true]), requires_grad=<span class="literal">False</span>)</span><br><span class="line">print(target)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([282])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#perform a backward pass in order to get gradients</span></span><br><span class="line">loss = torch.nn.CrossEntropyLoss()</span><br><span class="line">loss_cal = loss(output, target)</span><br><span class="line">loss_cal.backward(retain_graph=<span class="literal">True</span>)    <span class="comment">#this will calculate gradient of each variable (with requires_grad=True) and can be accessed by "var.grad.data"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eps = <span class="number">0.03</span></span><br><span class="line">x_grad = torch.sign(img_variable.grad.data)                <span class="comment">#calculate the sign of gradient of the loss func (with respect to input X) (adv)</span></span><br><span class="line">x_adversarial = img_variable.data + eps * x_grad          <span class="comment">#find adv example using formula shown above</span></span><br><span class="line">output_adv = inceptionv3.forward(Variable(x_adversarial))   <span class="comment">#perform a forward pass on adv example</span></span><br><span class="line">x_adv_pred = labels[int(torch.max(output_adv.data, <span class="number">1</span>)[<span class="number">1</span>][<span class="number">0</span>])]    <span class="comment">#classify the adv example</span></span><br><span class="line">op_adv_probs = F.softmax(output_adv, dim=<span class="number">1</span>)                 <span class="comment">#get probability distribution over classes</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adv_pred_prob =  round(float(torch.max(op_adv_probs.data, <span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>] * <span class="number">100</span>),<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">print(x_adv_pred)</span><br><span class="line">print(adv_pred_prob)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Persian cat
+42.322</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">visualize</span><span class="params">(x, x_adv, x_grad, epsilon, clean_pred, adv_pred, clean_prob, adv_prob)</span>:</span></span><br><span class="line">    </span><br><span class="line">    x = x.squeeze(<span class="number">0</span>)     <span class="comment">#remove batch dimension # B X C H X W ==&gt; C X H X W</span></span><br><span class="line">    x = x.mul(torch.FloatTensor(std).view(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)).add(torch.FloatTensor(mean).view(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)).numpy()<span class="comment">#reverse of normalization op- "unnormalize"</span></span><br><span class="line">    x = np.transpose( x , (<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>))   <span class="comment"># C X H X W  ==&gt;   H X W X C</span></span><br><span class="line">    x = np.clip(x, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    x_adv = x_adv.squeeze(<span class="number">0</span>)</span><br><span class="line">    x_adv = x_adv.mul(torch.FloatTensor(std).view(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)).add(torch.FloatTensor(mean).view(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>)).numpy()<span class="comment">#reverse of normalization op</span></span><br><span class="line">    x_adv = np.transpose( x_adv , (<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>))   <span class="comment"># C X H X W  ==&gt;   H X W X C</span></span><br><span class="line">    x_adv = np.clip(x_adv, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    x_grad = x_grad.squeeze(<span class="number">0</span>).numpy()</span><br><span class="line">    x_grad = np.transpose(x_grad, (<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>))</span><br><span class="line">    x_grad = np.clip(x_grad, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    figure, ax = plt.subplots(<span class="number">1</span>,<span class="number">3</span>, figsize=(<span class="number">18</span>,<span class="number">8</span>))</span><br><span class="line">    ax[<span class="number">0</span>].imshow(x)</span><br><span class="line">    ax[<span class="number">0</span>].set_title(<span class="string">'Clean Example'</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    ax[<span class="number">1</span>].imshow(x_grad)</span><br><span class="line">    ax[<span class="number">1</span>].set_title(<span class="string">'Perturbation'</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">    ax[<span class="number">1</span>].set_yticklabels([])</span><br><span class="line">    ax[<span class="number">1</span>].set_xticklabels([])</span><br><span class="line">    ax[<span class="number">1</span>].set_xticks([])</span><br><span class="line">    ax[<span class="number">1</span>].set_yticks([])</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    ax[<span class="number">2</span>].imshow(x_adv)</span><br><span class="line">    ax[<span class="number">2</span>].set_title(<span class="string">'Adversarial Example'</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">    </span><br><span class="line">    ax[<span class="number">0</span>].axis(<span class="string">'off'</span>)</span><br><span class="line">    ax[<span class="number">2</span>].axis(<span class="string">'off'</span>)</span><br><span class="line"></span><br><span class="line">    ax[<span class="number">0</span>].text(<span class="number">1.1</span>,<span class="number">0.5</span>, <span class="string">"+&#123;&#125;*"</span>.format(round(epsilon,<span class="number">3</span>)), size=<span class="number">15</span>, ha=<span class="string">"center"</span>, </span><br><span class="line">             transform=ax[<span class="number">0</span>].transAxes)</span><br><span class="line">    </span><br><span class="line">    ax[<span class="number">0</span>].text(<span class="number">0.5</span>,<span class="number">-0.13</span>, <span class="string">"Prediction: &#123;&#125;\n Probability: &#123;&#125;"</span>.format(clean_pred, clean_prob), size=<span class="number">15</span>, ha=<span class="string">"center"</span>, </span><br><span class="line">         transform=ax[<span class="number">0</span>].transAxes)</span><br><span class="line">    </span><br><span class="line">    ax[<span class="number">1</span>].text(<span class="number">1.1</span>,<span class="number">0.5</span>, <span class="string">" = "</span>, size=<span class="number">15</span>, ha=<span class="string">"center"</span>, transform=ax[<span class="number">1</span>].transAxes)</span><br><span class="line"></span><br><span class="line">    ax[<span class="number">2</span>].text(<span class="number">0.5</span>,<span class="number">-0.13</span>, <span class="string">"Prediction: &#123;&#125;\n Probability: &#123;&#125;"</span>.format(adv_pred, adv_prob), size=<span class="number">15</span>, ha=<span class="string">"center"</span>, </span><br><span class="line">         transform=ax[<span class="number">2</span>].transAxes)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visualize(image_tensor, x_adversarial, x_grad, eps, x_pred, x_adv_pred, x_pred_prob, adv_pred_prob)</span><br></pre></td></tr></table></figure>
+
+<p><img src="images/ads/output_16_0.png" alt="png"></p>
 
     <!-- 文章末尾的提示 start -->
     
@@ -645,20 +690,36 @@
         <p>
             <span>标签: </span>
             
+            <a href="/tags/#深度学习">
+                <code style="color: #333" key="深度学习" class="post-label">#深度学习</code>
+            </a>
+
+            
         </p>
         
         <p>
-            <span>发表于2019-07-17 03:08:59，最后修改于2019-07-17 03:08:59。</span>
+            <span>专题: </span>
+            
+            <a href="/series/#对抗样本等内容">
+                <code style="color: #c7254e" key="对抗样本等内容" class="post-label">对抗样本等内容</code>
+            </a>
+            
+            <a href="/series/#在UIUC的日子">
+                <code style="color: #c7254e" key="在UIUC的日子" class="post-label">在UIUC的日子</code>
+            </a>
+            
+        </p>
+        
+        <p>
+            <span>发表于2020-06-12 10:51:24，最后修改于2020-07-07 18:27:00。</span>
         </p>
         <p><span>本站文章欢迎链接分享，禁止全文转载。</span></p>
     </div>
     <hr />
     <p name="pagination">
     
-    <a class="float-left" href="/post/ad_example.html">« 上一篇 对抗样本(一) - 对抗样本的坑</a>
+    <a class="float-left" href="/post/abroad-test.html">« 上一篇 在外学习的日子</a>
     
-    
-    <a class="float-right" href="/post/dl_re.html">下一篇 » 遥感和深度学习问题</a>
     
 </p>
 </article>
@@ -678,20 +739,20 @@
                 
                 <span>/</span>
                 
-                <a class="text-gray" href="/tags/#深度学习，遥感监测，可信识别"
-                    title="深度学习，遥感监测，可信识别">深度学习，遥感监测，可信识别</a>
+                <a class="text-gray" href="/tags/#深度学习"
+                    title="深度学习">深度学习</a>
                 <span>/</span>
                 
                 
             </div>
-            <a href="/post/dl_re.html" class="title">
-                遥感和深度学习问题
+            <a href="/post/adversarial examples.html" class="title">
+                对抗样本(一) - 对抗样本的坑
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2019-07-24，</span>
-                    <span class="hidden-xs">全文5566字，</span>
-                    <span>阅读约8分钟</span>
+                    <span>发表于2020-06-12，</span>
+                    <span class="hidden-xs">全文5871字，</span>
+                    <span>阅读约9分钟</span>
                 </small>
             </p>
         </div>
@@ -710,15 +771,19 @@
                     title="深度学习">深度学习</a>
                 <span>/</span>
                 
+                <a class="text-gray" href="/tags/#Python"
+                    title="Python">Python</a>
+                <span>/</span>
+                
                 
             </div>
-            <a href="/post/ad_example.html" class="title">
-                对抗样本(一) - 对抗样本的坑
+            <a href="/post/abroad-test.html" class="title">
+                在外学习的日子
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2019-07-12，</span>
-                    <span class="hidden-xs">全文362字，</span>
+                    <span>发表于2019-11-12，</span>
+                    <span class="hidden-xs">全文168字，</span>
                     <span>阅读约1分钟</span>
                 </small>
             </p>
@@ -727,19 +792,38 @@
 </div>
     
     <div class="post-preview">
-    <div class="post-img" style="background-image: url('/post/cv_en/cv-cover2.png')"></div>
+    <div class="post-img" style="background-image: url('/')"></div>
     <div class="post-info">
         <div class="post-info-center">
             <div class="hidden-xs">
                 
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#机器学习"
+                    title="机器学习">机器学习</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#tensorflow"
+                    title="tensorflow">tensorflow</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#mnist"
+                    title="mnist">mnist</a>
+                <span>/</span>
+                
+                <a class="text-gray" href="/tags/#Python"
+                    title="Python">Python</a>
+                <span>/</span>
+                
+                
             </div>
-            <a href="/post/cv_zh.html" class="title">
-                个人简历
+            <a href="/post/tensorflow.html" class="title">
+                TensorFlow入门(一) - mnist手写数字识别(网络搭建)
             </a>
             <p class="text-gray">
                 <small>
-                    <span>发表于2011-09-03，</span>
-                    <span class="hidden-xs">全文118字，</span>
+                    <span>发表于2017-12-09，</span>
+                    <span class="hidden-xs">全文394字，</span>
                     <span>阅读约1分钟</span>
                 </small>
             </p>
@@ -924,7 +1008,7 @@
 <div id="sidebar-toc">
   <!-- TOC  -->
   
-  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quick-Start"><span class="toc-nav-text">Quick Start</span></a></li></ol>
+  <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Adversarial-Examples"><span class="toc-nav-text">Adversarial Examples</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Fast-Gradient-Sign-Method"><span class="toc-nav-text">Fast Gradient Sign Method</span></a></li></ol>
   
 </div>
 
