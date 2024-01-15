@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Li Chen | 陈力"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+description              : "Research scientist in Bytedance, Intelligent Creation. Focusing on CV, multimodal and interpretability."
 repository               : "RayleighChen/rayleighchen.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Li Chen | 陈力"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "xxx"
+  bio              : "Bytedance ICVG"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
