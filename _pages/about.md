@@ -39,7 +39,21 @@ My research interests include **interpretable AI** and **large multi-modal model
 </div>
 </div>
 
-- **Chen, L.**, Zhao, M., Liu, Y., Ding, M., Song, Y., Wang, S., Wang, X., Yang, H., Liu, J. et al. (2023). _Photoverse: Tuning-free image customization with text-to-image diffusion models_. arXiv preprint arXiv:2309.05793.
+
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+
+[AvatarVerse: High-quality & Stable 3D Avatar Creation from Text and Pose](https://arxiv.org/abs/2308.03610)
+
+**Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
+
+[**Project Page**](https://avatarverse3d.github.io/)
+
+Rigorous qualitative evaluations and user studies showcase AvatarVerse's superiority in synthesizing high-fidelity 3D avatars, leading to a new standard in high-quality and stable 3D avatar creation.
+</div>
+</div>
+
+
+
 - Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.**, Long, C., Zhu, F., Du, K. et al. (2023). _Avatarverse: High-quality & stable 3d avatar creation from text and pose_. arXiv preprint arXiv:2308.03610.
 - Wang, S., Zeng, W., Wang, X., Yang, H., **Chen, L.**, Zhang, C., Wu, M., Yuan, Y. et al. (2023). _SwiftAvatar: efficient auto-creation of parameterized stylized character on arbitrary avatar engines_. Proceedings of the AAAI Conference on Artificial Intelligence, 37(5), 6101-6109.
 - Tao, Y., Sun, J., Yang, H., **Chen, L.**, Wang, X., Yang, W., Du, D., Zheng, M. et al. (2023). _Local and Global Logit Adjustments for Long-Tailed Learning_. Proceedings of the IEEE/CVF International Conference on Computer Vision.
