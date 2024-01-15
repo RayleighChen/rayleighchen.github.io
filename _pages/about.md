@@ -40,7 +40,7 @@ My research interests include **interpretable AI** and **large multi-modal model
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='images/Avatarframework.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2024</div><img src='images/Avatarframework.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [AvatarVerse: High-quality & Stable 3D Avatar Creation from Text and Pose](https://arxiv.org/abs/2308.03610)
 
