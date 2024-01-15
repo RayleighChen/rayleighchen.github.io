@@ -53,8 +53,6 @@ Rigorous qualitative evaluations and user studies showcase AvatarVerse's superio
 </div>
 
 
-
-- Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.**, Long, C., Zhu, F., Du, K. et al. (2023). _Avatarverse: High-quality & stable 3d avatar creation from text and pose_. arXiv preprint arXiv:2308.03610.
 - Wang, S., Zeng, W., Wang, X., Yang, H., **Chen, L.**, Zhang, C., Wu, M., Yuan, Y. et al. (2023). _SwiftAvatar: efficient auto-creation of parameterized stylized character on arbitrary avatar engines_. Proceedings of the AAAI Conference on Artificial Intelligence, 37(5), 6101-6109.
 - Tao, Y., Sun, J., Yang, H., **Chen, L.**, Wang, X., Yang, W., Du, D., Zheng, M. et al. (2023). _Local and Global Logit Adjustments for Long-Tailed Learning_. Proceedings of the IEEE/CVF International Conference on Computer Vision.
 - **Chen, L.**, Li, Q., Chen, W., Wang, Z., Li, H. (2022). _A data‐driven adversarial examples recognition framework via adversarial feature genomes_. International Journal of Intelligent Systems, 37(9), 6438-6462.
