@@ -17,6 +17,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+# 👨🏻‍🎓 About Me 
+
 I am currently a Research Scientist at ByteDance. Before that, I received my Ph.D. from the School of Geosciences and Info-Physics, Central South University.
 
 My research interests include **interpretable AI** and **large multi-modal models**. My Google Scholar could be found <a href='https://scholar.google.com/citations?user=vJXUa7MAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
@@ -32,7 +34,8 @@ My research interests include **interpretable AI** and **large multi-modal model
 **Chen, L.**, Zhao, M., Liu, Y., Ding, M., Song, Y., Wang, S., Wang, X., Yang, H., Liu, J. et al.
 
 [**Project**](https://photoverse2d.github.io/)
-✅ only <u>**one**</u> facial photograph. ✅ <u>**no**</u> test-time tuning. ✅ demonstrate <u>**exceptional ID preservation and editability**</u>.    
+
+✅ only **<u>one</u>** facial photograph. ✅ **<u>no</u>** test-time tuning. ✅ demonstrate **<u>exceptional ID preservation and editability</u>**.    
 </div>
 </div>
 
