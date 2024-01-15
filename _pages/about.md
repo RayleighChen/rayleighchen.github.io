@@ -44,7 +44,7 @@ My research interests include **interpretable AI** and **large multi-modal model
 <div class='paper-box-text' markdown="1">
 [AvatarVerse: High-quality & Stable 3D Avatar Creation from Text and Pose](https://arxiv.org/abs/2308.03610)
 
-**Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
+Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
 
 [**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse)
 
