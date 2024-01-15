@@ -26,14 +26,14 @@ My research interests include **interpretable AI** and **large multi-modal model
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [PhotoVerse: Tuning-Free Image Customization with Text-to-Image Diffusion Models](https://arxiv.org/abs/2309.05793)
 
-**Chen, L.**, Zhao, M., Liu, Y., Ding, M., Song, Y., Wang, S., Wang, X., Yang, H., Liu, J. et al.
+**Chen, L.**, Zhao, M., Liu, Y., Ding, M., et al.
 
-[**Project**](https://photoverse2d.github.io/)
+[**Project Page**](https://photoverse2d.github.io/)
 
 ✅ only **<u>one</u>** facial photograph. ✅ **<u>no</u>** test-time tuning. ✅ demonstrate **<u>exceptional ID preservation and editability</u>**.    
 </div>
