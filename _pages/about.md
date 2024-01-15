@@ -46,7 +46,7 @@ My research interests include **interpretable AI** and **large multi-modal model
 
 **Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
 
-[**Project Page**](https://avatarverse3d.github.io/)
+[**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse)
 
 Rigorous qualitative evaluations and user studies showcase AvatarVerse's superiority in synthesizing high-fidelity 3D avatars, leading to a new standard in high-quality and stable 3D avatar creation.
 </div>
