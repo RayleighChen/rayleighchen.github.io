@@ -26,6 +26,21 @@ My research interests include **<font color="#0000dd">interpretable AI</font>** 
 
 # 📝 Publications 
 
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/xverse.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation](https://arxiv.org/abs/2506.21416)
+
+Chen B, Zhao M, Sun H, **Chen L**, et al.
+
+[**Project Page**](https://bytedance.github.io/XVerse/)
+
+✅ High-fidelity, editable multi-subject image synthesis. ✅ ✅ Powerful control over individual subject characteristics
+. ✅ Fine-grained manipulation of semantic attributes.    
+</div>
+</div>
+
+
 <div class='paper-box'><div class='paper-box-image'><div><img src='images/comparison-low2.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
