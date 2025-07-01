@@ -35,7 +35,7 @@ Chen B, Zhao M, Sun H, **Chen L**, et al.
 
 [**Project Page**](https://bytedance.github.io/XVerse/)
 
-✅ High-fidelity, editable multi-subject image synthesis. ✅ ✅ Powerful control over individual subject characteristics
+✅ High-fidelity, editable multi-subject image synthesis. ✅ Powerful control over individual subject characteristics
 . ✅ Fine-grained manipulation of semantic attributes.    
 </div>
 </div>
