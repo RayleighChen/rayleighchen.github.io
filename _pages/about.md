@@ -31,9 +31,9 @@ My research interests include **<font color="#0000dd">interpretable AI</font>** 
 
 [XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation](https://arxiv.org/abs/2506.21416)
 
-Chen B, Zhao M, Sun H, **Chen L**, et al.
+Chen B, Zhao M, Sun H, **Chen L (Project Lead)**, et al.
 
-[**Project Page**](https://bytedance.github.io/XVerse/)
+[**Project Page**](https://bytedance.github.io/XVerse/)[![](https://img.shields.io/github/stars/bytedance/XVerse?style=social)](https://github.com/bytedance/XVerse) Accepted by NeurIPS 2025
 
 ✅ High-fidelity, editable multi-subject image synthesis. ✅ Powerful control over individual subject characteristics
 . ✅ Fine-grained manipulation of semantic attributes.    
@@ -61,15 +61,15 @@ Chen B, Zhao M, Sun H, **Chen L**, et al.
 
 Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
 
-[**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse)
+[**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse) Accepted by AAAI 2024 
 
 Rigorous qualitative evaluations and user studies showcase AvatarVerse's superiority in synthesizing high-fidelity 3D avatars, leading to a new standard in high-quality and stable 3D avatar creation.
 </div>
 </div>
 
 
-- Wang, S., Zeng, W., Wang, X., Yang, H., **Chen, L.**, Zhang, C., Wu, M., Yuan, Y. et al. (2023). _SwiftAvatar: efficient auto-creation of parameterized stylized character on arbitrary avatar engines_. Proceedings of the AAAI Conference on Artificial Intelligence, 37(5), 6101-6109.
-- Tao, Y., Sun, J., Yang, H., **Chen, L.**, Wang, X., Yang, W., Du, D., Zheng, M. et al. (2023). _Local and Global Logit Adjustments for Long-Tailed Learning_. Proceedings of the IEEE/CVF International Conference on Computer Vision.
+- Wang, S., Zeng, W., Wang, X., Yang, H., **Chen, L.**, Zhang, C., Wu, M., Yuan, Y. et al. (2023). _SwiftAvatar: efficient auto-creation of parameterized stylized character on arbitrary avatar engines_. Proceedings of the AAAI Conference on Artificial Intelligence, 37(5), 6101-6109. [AAAI 2023]
+- Tao, Y., Sun, J., Yang, H., **Chen, L.**, Wang, X., Yang, W., Du, D., Zheng, M. et al. (2023). _Local and Global Logit Adjustments for Long-Tailed Learning_. Proceedings of the IEEE/CVF International Conference on Computer Vision. [ICCV 2023]
 - **Chen, L.**, Li, Q., Chen, W., Wang, Z., Li, H. (2022). _A data‐driven adversarial examples recognition framework via adversarial feature genomes_. International Journal of Intelligent Systems, 37(9), 6438-6462.
 - Lu, M., Li, Q., **Chen, L.**, Li, H. (2021). _Scale-adaptive adversarial patch attack for remote sensing image aircraft detection_. Remote Sensing, 13(20), 4078.
 - **Chen, L.**, Chen, W., Xu, Z., Huang, H., Wang, S., Zhu, Q., Li, H. (2021). _DAPnet: A double self-attention convolutional network for point cloud semantic labeling_. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
