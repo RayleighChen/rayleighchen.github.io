@@ -26,7 +26,7 @@ My research interests include **<font color="#0000dd">interpretable AI</font>** 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/xverse.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025</div><img src='images/xverse.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation](https://arxiv.org/abs/2506.21416)
