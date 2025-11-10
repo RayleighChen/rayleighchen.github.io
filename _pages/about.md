@@ -26,14 +26,14 @@ My research interests include **<font color="#0000dd">interpretable AI</font>** 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='images/xverse.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2024</div><img src='images/xverse.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation](https://arxiv.org/abs/2506.21416)
 
 Chen B, Zhao M, Sun H, **Chen L (Project Lead)**, et al.
 
-[**Project Page**](https://bytedance.github.io/XVerse/) [![](https://img.shields.io/github/stars/bytedance/XVerse?style=social)](https://github.com/bytedance/XVerse) **[NeurIPS 2025]**
+[**Project Page**](https://bytedance.github.io/XVerse/) [![](https://img.shields.io/github/stars/bytedance/XVerse?style=social)](https://github.com/bytedance/XVerse) [NeurIPS 2025]
 
 ✅ High-fidelity, editable multi-subject image synthesis. ✅ Powerful control over individual subject characteristics
 . ✅ Fine-grained manipulation of semantic attributes.    
@@ -61,7 +61,7 @@ Chen B, Zhao M, Sun H, **Chen L (Project Lead)**, et al.
 
 Zhang, H., Chen, B., Yang, H., Qu, L., Wang, X., **Chen, L.** et al.
 
-[**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse) **[AAAI 2024]** 
+[**Project Page**](https://avatarverse3d.github.io/) [![](https://img.shields.io/github/stars/bytedance/AvatarVerse?style=social)](https://github.com/bytedance/AvatarVerse) [AAAI 2024]
 
 Rigorous qualitative evaluations and user studies showcase AvatarVerse's superiority in synthesizing high-fidelity 3D avatars, leading to a new standard in high-quality and stable 3D avatar creation.
 </div>
